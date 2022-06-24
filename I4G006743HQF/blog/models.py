@@ -35,11 +35,11 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
-        pass 
+        pass
 
     def __str__(self):
         return self.title
-    
+
     def get_absolute_url(self):
         return reverse("blog:post_detail", kwargs={"slug": self.slug})
-    
+
